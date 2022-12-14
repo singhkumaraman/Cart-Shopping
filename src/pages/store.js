@@ -1,7 +1,8 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import { productsArray } from "../Products";
-import {productCard}  from '../components/Productcard';
+// import { productCard } from "../components/Productcard";
+import { Card, Button} from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 const Store = () => {
   return (
     <>
@@ -10,14 +11,21 @@ const Store = () => {
         Welcome To our Store{" "}
       </h2>
       <Row xs={1} md={3} className="g-4">
-        {productsArray.map((pro, idx) => (
-          <Col align="center" key={idx}>
-            <productCard product={pro} />
+        {productsArray.map((products) => (
+          <Col align="center">
+            {/* <productCard product={products} /> */}
+            <Card>
+              <Card.Body>
+                <Card.Title>{products.title}</Card.Title>
+                <Card.Text>{products.price}</Card.Text>
+                <Button variant="primary">Add To Cart</Button>
+              </Card.Body>
+            </Card>
           </Col>
         ))}
       </Row>
     </>
-  ); 
+  );
 };
 
 export default Store;
