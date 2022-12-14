@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavBar from "./components/navBar";
+import { Container } from "react-bootstrap";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Store from "./pages/store";
+import Success from "./pages/success";
+import Cancle from "./pages/cancle";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <NavBar />
+      <BrowserRouter>
+        <Routes>
+          {/* index means the root page  */}
+          <Route index element={<Store />} />
+          <Route path="success" element={<Success />} />
+          <Route path="cancle" element={<Cancle />} />
+        </Routes>
+      </BrowserRouter>
+    </Container>
   );
-}
+};
 
 export default App;
