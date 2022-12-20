@@ -23,4 +23,4 @@ const getProductInfo = (id) => {
   return info;
 };
 
-export { productsArray };
+export { productsArray,getProductInfo };

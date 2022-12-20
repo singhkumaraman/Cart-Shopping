@@ -5,19 +5,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Store from "./pages/store";
 import Success from "./pages/success";
 import Cancle from "./pages/cancle";
+import CartProvider from "./CartContext";
 const App = () => {
   return (
-    <Container>
-      <NavBar />
-      <BrowserRouter>
-        <Routes>
-          {/* index means the root page  */}
-          <Route index element={<Store />} />
-          <Route path="success" element={<Success />} />
-          <Route path="cancle" element={<Cancle />} />
-        </Routes>
-      </BrowserRouter>
-    </Container>
+    <CartProvider>
+      <Container>
+        <NavBar />
+        <BrowserRouter>
+          <Routes>
+            {/* index means the root page  */}
+            <Route index element={<Store />} />
+            <Route path="success" element={<Success />} />
+            <Route path="cancle" element={<Cancle />} />
+          </Routes>
+        </BrowserRouter>
+      </Container>
+    </CartProvider>
   );
 };
 
